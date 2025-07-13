@@ -8,6 +8,9 @@ const App: React.FC = () => {
             setMousePosition({x:event.clientX,y:event.clientY});
         }
         window.addEventListener('mousemove', handleMouseMove);
+        return () => {
+            window.removeEventListener('mousemove', handleMouseMove);
+        }
     },[]);
     return (
         <div className="container">
